@@ -33,19 +33,21 @@ $width = readline("Width (px): ");
 while (!ctype_digit($width)) {
     $width = readline("\rPlease enter an integer! Width (px): ");
 }
+$width = intval($width);
 
 $height = readline("Height (px): ");
 while (!ctype_digit($height)) {
-    $width = readline("\rPlease enter an integer! Height (px): ");
+    $height = readline("\rPlease enter an integer! Height (px): ");
 }
+$height = intval($height);
 
 $frameRate = readline("Frame rate (per second): ");
 while (!ctype_digit($frameRate)) {
     $frameRate = readline("\rPlease enter an integer! Frame rate (per second): ");
 }
-echo "\n";
-
 $frameRate = intval($frameRate);
+
+echo "\n";
 
 $extractor = new GithubRepoExtractor($name, $repo, $credentials);
 $ssCreator = new ScreenshotCreator(dirname(__FILE__) . '/bin/phantomjs.exe');
