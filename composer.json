@@ -1,24 +1,45 @@
 {
-	"require": {
-		"php": ">=5.3",
-		"ext-gd": "*",
-		"jonnyw/php-phantomjs": "4.*"
-	},
-	"autoload": {
-		"psr-4": {
-			"FileCommitAnimator\\": "src\\FileCommitAnimator",
-			"GifCreator\\": "src\\AnimGif\\src\\GifCreator"
-		}
-	},
-	"scripts": {
-        "post-install-cmd": [
-            "PhantomInstaller\\Installer::installPhantomJS"
-        ],
-        "post-update-cmd": [
-            "PhantomInstaller\\Installer::installPhantomJS"
-        ]
-    },
-	"config": {
-        "bin-dir": "bin"
-    }
+   "name":"kareemg/FileCommitAnimator",
+   "description":"Creates a gif of a file's changes over its lifetime in a github repository.",
+   "keywords":[
+      "gif",
+      "creation",
+      "commit",
+      "changes",
+      "lifetime",
+      "github",
+      "repository",
+      "PHP"
+   ],
+   "homepage":"https://github.com/kareemg/FileCommitAnimator",
+   "license":"MIT",
+   "authors":[
+      {
+         "name":"Kareem Golaub",
+         "homepage":"http://github.com/kareemg",
+         "role":"Developer"
+      }
+   ],
+   "require":{
+      "php":">=5.3",
+      "ext-gd":"*",
+      "jonnyw/php-phantomjs":"4.*"
+   },
+   "autoload":{
+      "psr-4":{
+         "FileCommitAnimator\\":"src\\FileCommitAnimator",
+         "GifCreator\\":"src\\AnimGif\\src\\GifCreator"
+      }
+   },
+   "scripts":{
+      "post-install-cmd":[
+         "PhantomInstaller\\Installer::installPhantomJS"
+      ],
+      "post-update-cmd":[
+         "PhantomInstaller\\Installer::installPhantomJS"
+      ]
+   },
+   "config":{
+      "bin-dir":"bin"
+   }
 }

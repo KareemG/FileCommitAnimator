@@ -70,17 +70,27 @@ class GithubRepoExtractor {
         preg_match('/[&|?]page=(.*?)>/', $links[1], $matches);
         $numOfCommits = $matches[1];
         
-        $jsonStr = @file_get_contents($commitsUrl . "?per_page=" . $numOfCommits, false, $context);
+        $commits = array();
+        while ($numOfCommits > 0) {
+            if ($numOfCommits < 100) {
+                $jsonStr = @file_get_contents($commitsUrl . "?per_page=" . $numOfCommits, false, $context);
+            } else {
+                $jsonStr = @file_get_contents($commitsUrl . "?per_page=100", false, $context);
+            }
 
-        $http_response_code = explode(' ', $http_response_header[0])[1];
+            $http_response_code = explode(' ', $http_response_header[0])[1];
 
-        if ($http_response_code != 200) {
-            throw new \Exception('Could not complete request, ' . $http_response_header[0]);
+            if ($http_response_code != 200) {
+                throw new \Exception('Could not complete request, ' . $http_response_header[0]);
+            }
+
+            $json = json_decode($jsonStr);
+            $commits = array_merge($commits, $json);
+
+            $numOfCommits -= 100;
         }
-
-        $json = json_decode($jsonStr);
-
-        $commitShas = array_map(function($o) { return $o->sha; }, $json);
+        
+        $commitShas = array_reverse(array_map(function($o) { return $o->sha; }, $commits));
         return $commitShas;
     }
     

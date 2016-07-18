@@ -33,7 +33,7 @@ var usr = "";
 var key;
 Console.Error.WriteLine("Welcome to the FileCommitAnimator! You'll need a Github account to continue.");
 Console.Error.WriteLine();
-Console.Error.Write("Enter username: ");
+Console.Error.Write("Github Email: ");
 do {
    key = Console.ReadKey(true);
 
@@ -52,7 +52,7 @@ do {
 Console.Error.WriteLine();
 Console.WriteLine(usr);
 
-Console.Error.Write("Enter password: ");
+Console.Error.Write("Password: ");
 do {
    key = Console.ReadKey(true);
 
