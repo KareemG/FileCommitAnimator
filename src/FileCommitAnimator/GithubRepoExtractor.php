@@ -34,7 +34,7 @@ class GithubRepoExtractor {
     }
     
     /**
-     * Returns 'sha' references of commits, where first entry is the latest commit.
+     * Returns 'sha' references of commits, where first entry is the earliest commit.
      *
      * @return string[]
      */
