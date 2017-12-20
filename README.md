@@ -46,7 +46,7 @@ Retrieving commits... done.
 Progress: 98/98 frames completed.
 Creating gif... gifs/2016-07-18 12-34-22pm.gif created.
 ```
-[Sample Gif](sample/2016-07-18 12-34-22pm.gif?raw=true "Optional Title")
+[Sample Gif](sample/2016-07-18%2012-34-22pm.gif?raw=true)
 
 ### Dependencies
 
